@@ -42,5 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-release-unsigned-apk
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
+          path: |
+           ./*.apk          # 匹配项目根目录下所有APK
+           !./app/**/*.apk  # 排除原build目录下的APK，仅保留根目录副本
           retention-days: 7
